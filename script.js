@@ -25,5 +25,6 @@ function AllEvents(){
         const ul = document.getElementById('toDoList'); 
         var li = document.querySelector('[data-id="' + id + '"]');
         ul.removeChild(li);
+        
     }); 
 };
