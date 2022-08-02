@@ -53,19 +53,19 @@
     text-shadow: 4px 4px 4px rgb(25, 25, 20);
 }
 
-.input{
+input[type=text]{
     font-family: 'Handmade', cursive;
     background-color: transparent;
     border-bottom: dashed 3px #9395aa;
     border-bottom-right-radius: 15px 3px;
     border-bottom-left-radius:3px 15px;
     border: solid 3px transparent;
-    border-bottom: dashed 3px #ea95e0;
+    border-bottom: dashed 3px #df1405;
 }
 
-.input:focus {
+input[type=text]:focus {
     outline: none;
-    border: solid 3px #ea95e0;
+    border: solid 3px #df1405;
 }
 
 .button{
@@ -99,18 +99,49 @@
 
 .List{
     word-wrap:break-word;
+    margin-left: -50px;
 }
 
-.toDoList {
-    text-align: left;
-}
   
 .toDoList li{
-    text-align: left;
     position:relative;
-    padding: 0.1rem;
 }
 
-.toDoList li:hover {
+label{
+    position: absolute;
+    left: 22px;
+}
+
+label:hover {
     text-decoration: line-through wavy #f00101;
+}
+
+input[type=checkbox]{
+    opacity: 1;
+    content: "";
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    outline: 1px solid #df1405;
+    -webkit-appearance:none;
+}
+
+
+input[type=checkbox]:checked{
+    content: "";
+    outline: 1px solid #5fd25f;
+    background-color: #fff;
+    background-image: url(check.png);
+    background-size: contain;
+    transform: scale(0);
+    transform: scale(1);
+    opacity: 1;
+    transition: all .3s ease;
+}
+
+input[type=checkbox]:hover{
+    background-color: #5fd25f;
 }
