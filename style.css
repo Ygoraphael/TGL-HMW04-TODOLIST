@@ -32,11 +32,11 @@
     justify-content: center;
 }
 
-.Topimg{
+.Top_img{
     width: 20%;
 }
 
-.Toptitle{
+.Top_title{
     background-color: hsla(61, 100%, 50%, 0.999);
     font-size: 2rem;
 }
@@ -45,15 +45,8 @@
     align-items: center;
     justify-content: center;
 }
-.label{
-    user-select: none;
-    color: rgb(1, 8, 14);
-    display: block;
-    text-align: left;
-    text-shadow: 4px 4px 4px rgb(25, 25, 20);
-}
 
-input[type=text]{
+#form_Input{
     font-family: 'Handmade', cursive;
     background-color: transparent;
     border-bottom: dashed 3px #9395aa;
@@ -63,12 +56,12 @@ input[type=text]{
     border-bottom: dashed 3px #df1405;
 }
 
-input[type=text]:focus {
+#form_Input:focus {
     outline: none;
     border: solid 3px #df1405;
 }
 
-.button{
+#form_Submit{
     padding: 0;
     border: none;
     transform: rotate(4deg);
@@ -83,7 +76,7 @@ input[type=text]:focus {
     background-color: hsla(61, 100%, 50%, 0.999);
 }
 
-.button span {
+#form_Submit span {
     background: #f1f5f8;
     display: block;
     padding: 0.5rem 1rem;
@@ -91,7 +84,7 @@ input[type=text]:focus {
     border: 2px solid hsl(198, 1%, 29%);
 }
 
-.button:active, .button:focus {
+#form_Submit:active, #form_Submit:focus {
     transform: translateY(4px);
     padding-bottom: 0px;
     outline: 0;
@@ -107,41 +100,96 @@ input[type=text]:focus {
     position:relative;
 }
 
-label{
+.line_label{
     position: absolute;
-    left: 22px;
+    left: 33px;
 }
 
-label:hover {
+.line_label:hover {
     text-decoration: line-through wavy #f00101;
 }
 
-input[type=checkbox]{
+.line_checkbox{
     opacity: 1;
     content: "";
+    left: -6px;
     position: relative;
     cursor: pointer;
     display: inline-block;
     width: 12px;
     height: 12px;
     background-color: #fff;
-    outline: 1px solid #df1405;
+    outline: 1px solid #5fd25f;
     -webkit-appearance:none;
 }
 
 
-input[type=checkbox]:checked{
+.line_checkbox:checked{
     content: "";
     outline: 1px solid #5fd25f;
     background-color: #fff;
     background-image: url(check.png);
     background-size: contain;
-    transform: scale(0);
     transform: scale(1);
     opacity: 1;
     transition: all .3s ease;
 }
 
-input[type=checkbox]:hover{
+.line_checkbox:hover{
     background-color: #5fd25f;
+}
+
+#Container_line{
+    position: relative;
+    display: inline-block;
+}
+
+#line_radio_star {
+    position: relative;
+    visibility:hidden;
+    font-size:16px;
+    cursor:pointer;
+    margin-left: -9px;
+    top: -8px;
+}
+#line_radio_star:before {
+    content: "\2605";
+    visibility:visible;
+    color: blue;
+}
+#line_radio_star:checked:before {
+    content: "\2606";
+    color: blue;
+}
+
+#Container_line_move{
+    display: inline-block;
+    position: relative;
+    top: -2px;
+    margin-left: -2px;
+    height: 16px;
+    background-color: #cccfff;
+}
+
+#arrow_up{
+    display: block;
+    position: relative;
+    font-size: 8px;
+    border-collapse: collapse;
+}
+
+#arrow_down{
+    display: block;
+    position: relative;
+    font-size: 8px;
+    border-collapse: collapse;
+}
+
+#arrow_up:hover, #arrow_down:hover{
+    font-size: 10px;
+    outline: 1px solid gray;
+}
+
+#Container_line_move:hover{
+    height: 20px;
 }
