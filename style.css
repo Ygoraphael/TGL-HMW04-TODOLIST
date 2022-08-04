@@ -32,11 +32,11 @@
     justify-content: center;
 }
 
-.Topimg{
+.Top_img{
     width: 20%;
 }
 
-.Toptitle{
+.Top_title{
     background-color: hsla(61, 100%, 50%, 0.999);
     font-size: 2rem;
 }
@@ -45,30 +45,23 @@
     align-items: center;
     justify-content: center;
 }
-.label{
-    user-select: none;
-    color: rgb(1, 8, 14);
-    display: block;
-    text-align: left;
-    text-shadow: 4px 4px 4px rgb(25, 25, 20);
-}
 
-.input{
+#form_Input{
     font-family: 'Handmade', cursive;
     background-color: transparent;
     border-bottom: dashed 3px #9395aa;
     border-bottom-right-radius: 15px 3px;
     border-bottom-left-radius:3px 15px;
     border: solid 3px transparent;
-    border-bottom: dashed 3px #ea95e0;
+    border-bottom: dashed 3px #df1405;
 }
 
-.input:focus {
+#form_Input:focus {
     outline: none;
-    border: solid 3px #ea95e0;
+    border: solid 3px #df1405;
 }
 
-.button{
+#form_Submit{
     padding: 0;
     border: none;
     transform: rotate(4deg);
@@ -83,7 +76,7 @@
     background-color: hsla(61, 100%, 50%, 0.999);
 }
 
-.button span {
+#form_Submit span {
     background: #f1f5f8;
     display: block;
     padding: 0.5rem 1rem;
@@ -91,26 +84,149 @@
     border: 2px solid hsl(198, 1%, 29%);
 }
 
-.button:active, .button:focus {
+#form_Submit:active, #form_Submit:focus {
     transform: translateY(4px);
     padding-bottom: 0px;
     outline: 0;
  }
 
+#container_filter{
+    display: inline-block;
+    margin-top: 10px;
+}
+
+
+#filter{
+    opacity: 1;
+    content: "";
+    left: -6px;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    outline: 1px solid #df1405;
+    -webkit-appearance:none;
+}
+    
+    
+#filter:checked{
+    content: "";
+    outline: 1px solid #df1405;
+    background-color: #fff;
+    background-image: url(check.png);
+    background-size: contain;
+}
+
+#filter_label1,#filter_label2, #filter_label3, #filter_label4{
+    position: relative;
+    left: -10px;
+    top: -5px;
+    font-size: 10px;
+    font-family: 'Handmade', cursive;
+}
+
 .List{
     word-wrap:break-word;
+    margin-left: -50px;
 }
 
-.toDoList {
-    text-align: left;
-}
   
 .toDoList li{
-    text-align: left;
     position:relative;
-    padding: 0.1rem;
 }
 
-.toDoList li:hover {
+.line_label{
+    position: absolute;
+    left: 33px;
+}
+
+.line_label:hover {
     text-decoration: line-through wavy #f00101;
+}
+
+.line_checkbox{
+    opacity: 1;
+    content: "";
+    left: -6px;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    outline: 1px solid #5fd25f;
+    -webkit-appearance:none;
+}
+
+
+.line_checkbox:checked{
+    content: "";
+    outline: 1px solid #5fd25f;
+    background-color: #fff;
+    background-image: url(check.png);
+    background-size: contain;
+    transform: scale(1);
+    opacity: 1;
+    transition: all .3s ease;
+}
+
+.line_checkbox:hover{
+    background-color: #5fd25f;
+}
+
+#Container_line{
+    position: relative;
+    display: inline-block;
+}
+
+#line_radio_star{
+    left: -11px;
+    position: relative;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-image: url("https://cdn.icon-icons.com/icons2/2645/PNG/512/star_icon_159842.png");
+    background-size: contain;
+    -webkit-appearance:none;
+}
+
+#line_radio_star:checked{
+    background-image: url("https://icones.pro/wp-content/uploads/2021/02/icone-etoile-bleue.png");
+    background-size: contain;
+    transform: scale(1);
+    transition: all .3s ease;
+}
+
+#Container_line_move{
+    display: inline-block;
+    position: relative;
+    top: -2px;
+    margin-left: -13px;
+    height: 16px;
+    background-color: #cccfff;
+}
+
+#arrow_up{
+    display: block;
+    position: relative;
+    font-size: 8px;
+    border-collapse: collapse;
+}
+
+#arrow_down{
+    display: block;
+    position: relative;
+    font-size: 8px;
+    border-collapse: collapse;
+}
+
+#arrow_up:hover, #arrow_down:hover{
+    font-size: 10px;
+    outline: 1px solid gray;
+}
+
+#Container_line_move:hover{
+    height: 20px;
 }
