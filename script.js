@@ -15,7 +15,6 @@ function AllEvents(){
         const ItemValue = Input.value.trim();
         if (ItemValue.length)
         {
-            console.log("aqui");
             let itemId = String(Date.now());
             List_items.push({ value: ItemValue, Date_Now: itemId, done: false});
             localStorage.setItem("todo_list", JSON.stringify(List_items));
@@ -25,15 +24,11 @@ function AllEvents(){
         }
     });
 
-
     function listItems() {
-        if (List_items.length >0)
-        {
-            const ul = document.getElementById('toDoList');
-            ul.innerHTML = "";
-            for (var i = 0; i < List_items.length; i++) {
-                addItem(List_items[i].Date_Now, List_items[i].value, List_items[i].done, List_items[i].important);
-            }
+        const ul = document.getElementById('toDoList');
+        ul.innerHTML = "";
+        for (var i = 0; i < List_items.length; i++) {
+            addItem(List_items[i].Date_Now, List_items[i].value, List_items[i].done, List_items[i].important);
         }
     }
 
@@ -183,4 +178,44 @@ function AllEvents(){
             listItems();
         }                
     }
+    return {listItems};
+};
+
+function Filter(filter){
+    let done = document.getElementsByName("done");
+    let important = document.getElementsByName("important");
+    let todo = document.getElementsByName("todo");
+    let all = document.getElementsByName("all");    
+    const obj = new AllEvents;    
+    
+    List_items = JSON.parse(localStorage.getItem("todo_list")); 
+    if (filter != "all"){
+        all[0].checked = false;
+        if (filter == "todo") done[0].checked = false;
+
+        if (done[0].checked){
+            todo[0].checked = false;
+            if (important[0].checked)
+                arr_tmp = List_items.filter(r=>(r.done == true & r.important == true));
+            else
+                arr_tmp = List_items.filter(r=>(r.done == true));
+        }
+        else if (todo[0].checked){
+            if (important[0].checked)
+                arr_tmp = List_items.filter(r=>(r.done == false & r.important == true));
+            else
+                arr_tmp = List_items.filter(r=>(r.done == false));
+        }
+        else if (important[0].checked)
+            arr_tmp = List_items.filter(r=>(r.important == true));
+
+        if(done[0].checked || todo[0].checked || important[0].checked)
+            List_items = arr_tmp.concat();
+    }
+    else{
+        done[0].checked = false;
+        important[0].checked = false;
+        todo[0].checked = false;
+    }  
+    obj.listItems();
 };

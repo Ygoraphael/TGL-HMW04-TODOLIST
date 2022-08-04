@@ -22,6 +22,16 @@
                     <button class="button" type="submit" id="form_Submit"><span>Submit</span></button>
                 </div>
             </form>
+            <div id="container_filter">
+                <input type="checkbox" id="filter"  name="done" onclick="Filter(this.name)">
+                <label id="filter_label1" >Done</label>
+                <input type="checkbox" id="filter" name="important" onclick="Filter(this.name)">
+                <label id="filter_label2" >Important</label>
+                <input type="checkbox" id="filter" name="todo" onclick="Filter(this.name)">
+                <label id="filter_label3" >To do</label>
+                <input type="checkbox" id="filter" name="all" onclick="Filter(this.name)">
+                <label id="filter_label4" >All</label>
+            </div>
             <div class="List">
                 <ul class="toDoList" id="toDoList" style="list-style-type:none">
                 </ul>

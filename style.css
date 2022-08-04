@@ -90,6 +90,43 @@
     outline: 0;
  }
 
+ #container_filter{
+    display: inline-block;
+    margin-top: 10px;
+}
+
+
+#filter{
+    opacity: 1;
+    content: "";
+    left: -6px;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    outline: 1px solid #df1405;
+    -webkit-appearance:none;
+}
+    
+    
+#filter:checked{
+    content: "";
+    outline: 1px solid #df1405;
+    background-color: #fff;
+    background-image: url(check.png);
+    background-size: contain;
+}
+
+#filter_label1,#filter_label2, #filter_label3, #filter_label4{
+    position: relative;
+    left: -10px;
+    top: -5px;
+    font-size: 10px;
+    font-family: 'Handmade', cursive;
+}
+
 .List{
     word-wrap:break-word;
     margin-left: -50px;
