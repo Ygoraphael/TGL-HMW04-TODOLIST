@@ -144,29 +144,29 @@
     display: inline-block;
 }
 
-#line_radio_star {
+#line_radio_star{
+    left: -11px;
     position: relative;
-    visibility:hidden;
-    font-size:16px;
-    cursor:pointer;
-    margin-left: -9px;
-    top: -8px;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-image: url("https://cdn.icon-icons.com/icons2/2645/PNG/512/star_icon_159842.png");
+    background-size: contain;
+    -webkit-appearance:none;
 }
-#line_radio_star:before {
-    content: "\2605";
-    visibility:visible;
-    color: blue;
-}
-#line_radio_star:checked:before {
-    content: "\2606";
-    color: blue;
+
+#line_radio_star:checked{
+    background-image: url("https://icones.pro/wp-content/uploads/2021/02/icone-etoile-bleue.png");
+    background-size: contain;
+    transform: scale(1);
+    transition: all .3s ease;
 }
 
 #Container_line_move{
     display: inline-block;
     position: relative;
     top: -2px;
-    margin-left: -2px;
+    margin-left: -13px;
     height: 16px;
     background-color: #cccfff;
 }

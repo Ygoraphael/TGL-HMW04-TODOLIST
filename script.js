@@ -9,10 +9,6 @@ function AllEvents(){
     
     listItems();
 
-    //document.getElementById("list_lbl_123").addEventListener("click", e=>{RemoveTask(e)});
-    //document.getElementById("list_check_123").addEventListener("click", e=>{CheckComplete(e)});
-
-    let toDoListArray = [];
     document.getElementById("form_Submit").addEventListener('click', el=>{  
         el.preventDefault();
         const Input = document.getElementById("form_Input");
@@ -56,7 +52,11 @@ function AllEvents(){
         btnCheck.setAttribute("class","line_checkbox");
         btnCheck.setAttribute("id",itemId);
 
-        if (Done) { btnCheck.setAttribute("checked","true");}
+        if (Done) { 
+            btnCheck.setAttribute("checked","true");
+            li.style.opacity = 0.5;
+            lbl.style.textDecoration = 'line-through';
+        }
 
         lbl.id = "lbl"+itemId;
         lbl.htmlFor = "line_checkbox"+itemId;
@@ -70,8 +70,8 @@ function AllEvents(){
         check_star.setAttribute("type","checkbox");
         check_star.setAttribute("id","line_radio_star");
         check_star.setAttribute("data-id", itemId);
-        if (Important) { check_star.setAttribute("checked","true");}
-        else{ check_star.setAttribute("checked","false");}
+        
+        if (Important) { check_star.setAttribute("checked","true"); }
 
 
         moveup.setAttribute("class", "fa fa-arrow-up");
@@ -102,7 +102,6 @@ function AllEvents(){
 
 
     function RemoveTask(el){
-        console.log("Removendo");
         let id = el.target.getAttribute('id');
         if (!id) return
 
@@ -114,7 +113,6 @@ function AllEvents(){
     }
 
     function CheckComplete(el){
-        console.log("checkboxdone");
         let id = el.target.getAttribute('id');
         if (!id) return
         List_items.find((o, i) => {
@@ -151,15 +149,13 @@ function AllEvents(){
         if (index > 0){
             let arr_temp = [];
             for (var i = 0; i < List_items.length; i++) {
-                arr_temp.push(List_items[i]);
-            }
-
-            arr_temp.forEach(function(Row, i) {
                 if (i==(index-1))
-                    arr_temp.splice(i, 1, List_items[i+1]);
+                    arr_temp.push(List_items[i+1]);
                 else if (i==index)
-                    arr_temp.splice(i, 1, List_items[i-1]);
-            });
+                    arr_temp.push(List_items[i-1]);
+                else
+                    arr_temp.push(List_items[i]);
+            }
 
             List_items = arr_temp.concat();
             localStorage.setItem("todo_list", JSON.stringify(List_items));
@@ -174,15 +170,13 @@ function AllEvents(){
         if (index < List_items.length-1){
             let arr_temp = [];
             for (var i = 0; i < List_items.length; i++) {
-                arr_temp.push(List_items[i]);
-            }
-
-            arr_temp.forEach(function(Row, i) {
                 if (i==(index+1))
-                    arr_temp.splice(i, 1, List_items[i-1]);
+                    arr_temp.push(List_items[i-1]);
                 else if (i==index)
-                    arr_temp.splice(i, 1, List_items[i+1]);
-            });
+                    arr_temp.push(List_items[i+1]);
+                else
+                    arr_temp.push(List_items[i]);
+            }
 
             List_items = arr_temp.concat();
             localStorage.setItem("todo_list", JSON.stringify(List_items));
